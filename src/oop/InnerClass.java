@@ -22,3 +22,25 @@ public class InnerClass {
         System.out.println(myInner.myInnerMethod());
     }
 }
+
+
+//Anonymous inner class as an argument
+abstract class Engine {
+    public abstract void engineType();
+}
+class Vehicle4 {
+    public void transport(Engine e) {
+        e.engineType();
+    }
+}
+ class Tester {
+    public static void main(String args[]) {
+        Vehicle4 v = new Vehicle4();
+        v.transport(new Engine() {
+            @Override
+            public void engineType() {
+                System.out.println("Turbo Engine");
+            }
+        });
+    }
+}
