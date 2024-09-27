@@ -8,6 +8,12 @@ public class Lambda {
         String run(String str);
     }
 
+    @FunctionalInterface
+    interface MyFunctionalInterface {
+        void execute();  // Abstract method
+    }
+
+
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         numbers.add(5);
@@ -31,6 +37,9 @@ public class Lambda {
         StringFunction ask = (s) -> s + "?";
         printFormatted("Hello", exclaim);
         printFormatted("Hello", ask);
+
+        MyFunctionalInterface func = () -> System.out.println("Executing...");
+        func.execute();  // Output: Executing...
     }
     public static void printFormatted(String str, StringFunction format) {
         String result = format.run(str);
